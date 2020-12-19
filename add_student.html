@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title></title>
+  <script>
+ function VALID() {
+  var name= document.forms["RegForm"]["fname"];
+  var name2= document.forms["RegForm"]["lname"];
+  var age=document.forms["RegForm"]["age"];
+  var id1=document.getElementById("id").value;
+  var add=document.forms["RegForm"]["address"];
+  var letters = /^[A-Za-z]+$/;
+   
+   if (!add.value.match(letters))
+   {
+      
+      window.alert("Please enter text only");
+      add.focus();
+      return false;
+     }
+
+   if (name.value == "") {
+      
+     window.alert("Please enter your first name");
+     name.focus();
+     return false;
+    }
+   if (name2.value==""){
+     window.alert("Please enter your last name");
+     name2.focus();
+     return false;
+    }
+   if(age.value>50||age.value<18){
+     window.alert("age value is not valid");
+     age.focus();
+     return false;
+    }
+   
+   if(isNaN(id1)){
+    window.alert("numeric values only");
+    id1.focus();
+    return false;
+    }
+
+   if (! /^[0|1][0-9]{10}$/.test(id1)) {
+     window.alert("must be 11 digits");
+     id1.focus();
+     return false;
+    }
+   return true;
+}
+
+  </script>
+  <style>
+label {
+color : green;
+font-size : 25px;
+font-family : Helvetica;
+}
+
+form{
+width: 300px;
+margin: 0 auto;
+}
+
+
+
+input{
+color : purple;
+}
+  </style>
+ </head>
+ <body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<form name="RegForm" onsubmit="return VALID()" action="result.html"
+>
+
+<label for ="fname">First Name:</label>
+<br>
+<input type ="text" id ="fname" name="fname" size ="50" ><br>
+<br>
+<br>
+<label for ="lname">Last Name:</label>
+<br>
+<input type ="text" id ="lname" name="lname" size ="50" ><br>
+<br>
+<br>
+<label for ="age">Age:</label>
+<br>
+<input type ="text" id ="age" name="age" size ="50"><br>
+<br>
+<br>
+<label for ="id">ID:</label>
+<br>
+<input type ="text" id ="id" name="id" size ="50"><br>
+<br>
+<br>
+<label for ="address">Address:</label>
+<br>
+<input type ="text" id ="address" name="address" size ="50"><br>
+<br>
+<br>
+
+<input type= "submit"/>
+
+</form>
+
+
+ </body>
+</html>
